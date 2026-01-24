@@ -1,0 +1,128 @@
+1. En la siguiente figura, se muestra en forma de nube las clases y en forma de
+rectángulo los objetos que se han construido a partir de las clases. Responde a las preguntas:
+
+a.) 3¿?
+b.) 3
+
+
+2. A partir de la siguiente imagen:
+
+a.) Sí.
+b.) Sí.
+c.) 0.
+d.) Sí.
+e.) Una clase solo puede tener un padre.
+
+
+3. Responde a las siguientes cuestiones.
+
+a.) Se hereda tanto los atributos como lo métodos, que sean publicos o protected.
+b.) Sí, siempre que se cumpla con el modificador de privacidad.
+c.) super();
+d.) Sí, siempre que el padre tenga un constructor no tenga un constructor sin parametros.
+En caso de tenerlo se vuelve opcional.
+e.) No, si no tiene un constructor con parametros no es necesario llamar en la clase hija a super().
+
+
+4. Pon tres ejemplos de herencia. No hace falta que incluyas atributos o métodos,
+solo los nombres de las clases y señala quiénes son las clases hijas y las clases padres.
+
+public class Figura {}
+public class Circulo extends Figura {}     // Hija de figura
+public class Cuadrado extends Figura {}    // Hija de figura
+public class Rectangulo extends Figura {}  // Hija de figura
+public class Elipse extends Circulo {}     // Hija de Circulo
+
+
+5. Si tenemos una clase padre llamada Video con atributos, título y minutos, y una clase
+hija llamada Pelicula con atributos como título, minutos, director y valoración. De qué forma
+habría que implementar las clases para hacer uso de la herencia y reutilizar el mayor código
+posible. Impleméntalo.
+
+class Video {
+    String titulo;
+    String minutos;
+
+    public Video(String titulo, String minutos) {
+        this.titulo = titulo;
+        this.minutos = minutos;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getMinutos() {
+        return minutos;
+    }
+
+    public void setMinutos(String minutos) {
+        this.minutos = minutos;
+    }
+}
+
+class Pelicula extends Video{
+    int valoracion;
+
+    public Pelicula (String titulo, String minutos, int valoracion) {
+        super(titulo, minutos);
+        this.valoracion = valoracion;
+    }
+}
+
+
+6. ¿Qué problema surgiría si se permitiese la herencia múltiple en Java?
+Razona tu respuesta con un ejemplo.
+
+Que al tener dos super clases habría un problema al encontrar de quien hereda.
+
+
+7. A partir del siguiente diagrama:
+
+a.) La clase A es una *super clase* de la clase C.
+b.) La clase B es una *nada* de la clase C.
+c.) La clase E es una *clase hija* de la clase A.
+d.) La clase D es una *clase hija* de la clase B.
+e.) La clase A es una *clase padre* de la clase D.
+
+
+8. Dibuja el diagrama correspondiente a las siguientes clases de herencia:
+Libro, Novela, Lectura, Periódico.
+
+Lectura
+   |
+  --------------------
+  |          |       |
+Periódico  Novela  Libro
+
+
+9. ¿Qué diferencias hay entre sobrecarga y sobrescritura? Pon ejemplo.
+
+La sobrecarga surge cuando existen dos o más metodos con un mismo nombre pero con distintos
+parámetros; ya sea por cantidad o por tipo. De forma que se distinguen por los parametros.
+La sobre escritura sirve para la herencia, al heredar un método puedes sobrescribir
+lo que hace un método heredado para personalizarlo según la clase.
+
+
+10. Crea una clase base llamada ‘A’ (sin constructor) y una subclase llamada ‘B’ (sin
+constructor) que extienda de ‘A’. Añade dos atributos en la clase base que hereden a la
+subclase y un atributo que no herede. Crea tres métodos en la clase padre: dos que se hereden
+y uno que no. En la clase hija, sobreescribe uno de los dos métodos que se heredan de la
+clase padre.
+
+a.) Llama al constructor generico de A y B.
+b.) Entonces si que hay que crear el constructor.
+
+
+11. A partir de las clases generadas en el ejercicio 5. Sobreescribe el método toString()
+solo en la clase Video.
+
+a.)
+b.) Porque no ha heredado el toString de Video.
+c.) Sobre escribiendo el toString también en el hijo.
+d.)
+e.) Pues si es de los video en la clase Video.
