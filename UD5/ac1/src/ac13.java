@@ -49,7 +49,6 @@ class Cilindro extends Circulo {
 
     public Cilindro(double radio, double altura) {
         if (radio < 0 || altura < 0) {
-            radio = 0;
             altura = 0;
         }
         super(radio);
