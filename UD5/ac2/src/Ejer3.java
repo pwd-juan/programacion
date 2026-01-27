@@ -126,8 +126,4 @@ class Tonel {
     public int getNivelAct() {
         return nivelAct;
     }
-
-    public void setNivelAct(int nivelAct) {
-        this.nivelAct = nivelAct;
-    }
 }
