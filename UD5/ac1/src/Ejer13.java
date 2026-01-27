@@ -1,4 +1,4 @@
-public class ac13 {
+public class Ejer13 {
     public static void main(String[] args) {
         Circulo circuloMal = new Circulo(-1);
         Cilindro cilindroMal = new Cilindro(1, -2);

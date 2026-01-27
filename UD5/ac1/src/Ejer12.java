@@ -1,4 +1,4 @@
-public class ac12 {
+public class Ejer12 {
     public static void main(String[] args) {
         CocheElectrico tesla = new CocheElectrico("Tesla", 350, 4);
         CocheCombustion toyota = new CocheCombustion("Toyota", 350, 4, 6);
