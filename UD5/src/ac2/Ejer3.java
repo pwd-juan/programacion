@@ -1,10 +1,12 @@
+package ac2;
+
 /*Si le cambio el nombre a la clase, tengo que cambiar la clase al archivo.*/
 public class Ejer3 {
     static void main() {
         Tonel tonelA = new Tonel("000-1", 100);
         tonelA.anadirEliminarNivel(-50);
         Tonel tonelB = new Tonel("000-2", 100);
-        Impresora impresora = new Impresora(true);
+        Impresora impresora = new Impresora(tonelB, true);
 
         int pagsImpresas;
 
@@ -44,11 +46,6 @@ class Impresora {
     private Tonel tonel;
     private int numPagImpresas;
     private final boolean tieneDobleCara;
-
-    public Impresora(boolean tieneDobleCara) {
-        this.numPagImpresas = 0;
-        this.tieneDobleCara = tieneDobleCara;
-    }
 
     public Impresora(Tonel tonel, boolean tieneDobleCara) {
         this.tonel = tonel;

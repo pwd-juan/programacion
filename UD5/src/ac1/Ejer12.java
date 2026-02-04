@@ -1,3 +1,5 @@
+package ac1;
+
 public class Ejer12 {
     public static void main(String[] args) {
         CocheElectrico tesla = new CocheElectrico("Tesla", 350, 4);

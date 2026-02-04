@@ -1,3 +1,5 @@
+package ac2;
+
 public class Ejer1 {
     static void main() {
         Habitacion habitacion = new Habitacion(

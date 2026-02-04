@@ -1,3 +1,5 @@
+package ac2;
+
 public class Ejer2 {
 }
 

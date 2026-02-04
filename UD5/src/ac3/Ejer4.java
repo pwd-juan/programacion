@@ -1,3 +1,5 @@
+package ac3;
+
 public class Ejer4 {
     static void main() {
         Pintura p = new Pintura(250);

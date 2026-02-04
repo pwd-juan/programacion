@@ -1,3 +1,5 @@
+package ac3;
+
 public class Ejer3 {
     static void main() {
         Coche a = new CocheElectrico("Coche A");

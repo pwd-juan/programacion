@@ -1,3 +1,5 @@
+package ac1;
+
 public class Prueba3 {
     public static void main(String[] args) {
         Pelicula peli = new Pelicula("Titulo", 2.40, 8, 3.99);

@@ -1,3 +1,5 @@
+package ac1;
+
 public class Prueba10 {
     public static void main(String[] args) {
 

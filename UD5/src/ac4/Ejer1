@@ -1,0 +1,27 @@
+1. Responde a las siguientes preguntas:
+
+a.) ¿Puede una interfaz incluir variables de instancia?
+Una interfaz contiene constantes que luego se pueden utilizar dentro de la clase.
+
+b.) ¿Qué diferencias encontramos entre herencia e interfaz?
+En la herencia una clase hija hereda los metodos de una clase padre, es capaz de sobre
+escribirlos. Mientras que una interfaz es una plantilla que se acopla a cualquier clase
+para obligarla a implementar una sería de metodos, aparte de ofrecer unas contantes que podrá
+utilizar dicha clase. Siendo así que en la herencia los métodos ya estan definidos y se
+pueden modificar, y en las interfaces lo unico que existe es la obligación de implementar
+el método, es decir, que viene vacio a la clase.
+
+c.) ¿Por qué los métodos en una interfaz no pueden ser privados?
+
+d.) ¿Podrían las interfaces contener varias definiciones de la misma constante?
+Sí te refieres en la misma interfaz no, pero si es es mismo nombre en distintas interfaces si,
+solo que al hora de implementarlas necesitas especificar de donde viene para evitar
+ambigüedad.
+
+e.) ¿Puede una clase heredar de varias interfaces?
+Sí.
+
+f.) Si una clase hereda de varias interfaces, y esas interfaces tienen un mismo método con
+la misma signatura, ¿se producirá un error? ¿por qué?
+No, con crear una vez el método dentro de la clase sirve para los dos. El problema viene si
+los dos metodos se llaman igual, pero devuelven un tipo de dato distinto.

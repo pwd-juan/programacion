@@ -1,5 +1,7 @@
+package ac1;
+
 public class Ejer13 {
-    public static void main(String[] args) {
+    static void main(String[] args) {
         Circulo circuloMal = new Circulo(-1);
         Cilindro cilindroMal = new Cilindro(1, -2);
         Cilindro cilindroMal2 = new Cilindro(-1, 2);
@@ -24,6 +26,20 @@ public class Ejer13 {
         System.out.println(cilindro.getAltura());
         System.out.println(cilindro.getArea());
         System.out.println(cilindro.getVolumen());
+
+        // Ejermplo Dowcasting y Upcasting
+        System.out.println(" --- ");
+
+        // Cilindro c = new Circulo(2);
+        // Cilindro c = (Cilindro) new Circulo(2);
+
+        Circulo c1 = new Cilindro(2, 5);
+        System.out.println(c1.getClass());
+        Cilindro c2 = (Cilindro) c1;
+        System.out.println(c1.getClass());
+
+        Cilindro x1 = new Cilindro(2, 3);
+
     }
 }
 

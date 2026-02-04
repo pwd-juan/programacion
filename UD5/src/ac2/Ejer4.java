@@ -1,3 +1,5 @@
+package ac2;
+
 public class Ejer4 {
     static void main() {
         AulaMal aula1 = new AulaMal(5, 10, 10);

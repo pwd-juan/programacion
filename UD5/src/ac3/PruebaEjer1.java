@@ -1,3 +1,5 @@
+package ac3;
+
 public class PruebaEjer1 {
     static void main() {
         /* a.) ¿Qué imprimiría el siguiente código? */

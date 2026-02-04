@@ -3,9 +3,9 @@
 a.)
 rod = new Rat(); -> Sí.
 mou = new Rat() -> No. Un objeto esta utilizando otro constructor hijo de otro hijo.
-rat = new Rodent(); -> No. Un hijo no puede tener el constructor del padre.
+rat = new Rodent(); -> Es posible.
 rat = new FieldMouse(); -> No. Esta en otra rama.
 rod = new FieldMouse(); -> Sí.
-mou = new Rodent(); -> No. Un hijo no puede tener el constructor del padre.
+mou = new Rodent(); -> Es posible.
 rat = new LabRat(); -> Sí.
 rat = new Mouse(); -> No. Pertenece a otra rama de hijos.
