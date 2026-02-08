@@ -1,0 +1,14 @@
+3.- Responde a las siguientes preguntas:
+
+a.) ¿Una clase abstracta posee constructor? Si es así, ¿se podría crear un objeto de una
+clase abstracta?
+Una clase abstracta puede tener constructor, y se utilizar para instaciar las variables de la
+clase. No se puede instaciar una clase abstracta.
+
+b.) ¿Cuáles son las diferencias entre una clase abstracta y una interfaz?
+Una clase abstracta aparte de tener metodos abstractos, puede tener métodos definido he
+puede obligar a las clases hijas a tener constructor.
+
+c.) ¿Puede una clase abstracta implementar una interfaz? Razona tu respuesta.
+Sí, y el no se vera obligado a implementarlo, si no que seran las hijas no abstractas las
+que tendrán que implementarlo.
