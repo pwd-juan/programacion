@@ -33,6 +33,8 @@ public class Main {
             misAlbumes.get(1).addToPlayList(i, playList);
         }
 
+        impAlbum(ameri);
+        impAlbum(nochesDarshy);
         play(playList);
     }
 
@@ -104,12 +106,12 @@ public class Main {
 
                     if (it.hasPrevious()){
                         cancionActual = it.previous();
-                    }
-                    else {
+                    } else {
                         System.out.print("\n\n");
                         System.out.println("No hay más atrás.");
                     }
                 }
+                case "3" -> System.out.println("\nActualmente reproduciendo: " + cancionActual + "\n");
                 case "4" -> imprimirPlayList(playList);
                 case "5" -> System.out.print("\n");
                 case "6" -> {
@@ -139,7 +141,6 @@ public class Main {
         ameri.addSong("Nueva Era", 3.37);
         ameri.addSong("Brindis", 3.00);
         ameri.addSong("Buscarte Lejos", 3.14);
-        ameri.addSong("Imperio", 2.48);
         ameri.addSong("Hardaway", 3.36);
         ameri.addSong("Cine 🚬", 2.22);
         ameri.addSong("Vida de Rock", 3.01);
@@ -147,7 +148,6 @@ public class Main {
         ameri.addSong("Barro", 3.21);
         ameri.addSong("Un Día Más", 2.45);
         ameri.addSong("Trato De Estar Bien", 3.33);
-        ameri.addSong("Wake Up & Bake Up", 3.36);
         ameri.addSong("Constelación", 3.20);
         ameri.addSong("Ameri", 3.19);
 
@@ -158,17 +158,22 @@ public class Main {
         Album nochesDarshy = new Album("noches en darshy", "7lossy");
 
         nochesDarshy.addSong("todo lo que me honra", 2.11);
-        nochesDarshy.addSong("abadía de París", 1.49);
-        nochesDarshy.addSong("gOATalike", 1.37);
         nochesDarshy.addSong("akatsuki", 2.24);
         nochesDarshy.addSong("la matanza del cordero", 1.28);
-        nochesDarshy.addSong("azazel", 2.42);
-        nochesDarshy.addSong("presumida", 2.12);
         nochesDarshy.addSong("WAKEUP!", 1.11);
-        nochesDarshy.addSong("yyovoyy", 2.16);
-        nochesDarshy.addSong("proverbs 16:3", 2.14);
-        nochesDarshy.addSong("michael kaiser", 1.26);
 
         return nochesDarshy;
+    }
+
+    private static void impAlbum(Album album) {
+        ArrayList<Cancion> cancionesAlbum = album.getCanciones();
+
+        System.out.println(">---<");
+        System.out.printf("Album: %s | Artista %s\n", album.getNombre(), album.getArtista());
+        for (Cancion c : cancionesAlbum) {
+            System.out.println(c);
+        }
+        System.out.println(">---<");
+        System.out.print("\n");
     }
 }

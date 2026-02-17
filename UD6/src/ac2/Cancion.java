@@ -1,8 +1,8 @@
 package ac2;
 
 public class Cancion {
-    private String titulo;
-    private double duracion;
+    private final String titulo;
+    private final double duracion;
 
     public Cancion(String titulo, double duracion){
         this.titulo = titulo;

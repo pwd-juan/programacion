@@ -18,6 +18,14 @@ public class Album {
         return canciones;
     }
 
+    public String getNombre() {
+        return this.nombre;
+    }
+
+    public String getArtista() {
+        return this.artista;
+    }
+
     public boolean addSong(String tituloCancion, double duracionCancion) {
         boolean esAnadido = false;
         if (findSong(tituloCancion) == null) {
