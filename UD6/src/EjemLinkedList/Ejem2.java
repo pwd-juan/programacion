@@ -1,4 +1,4 @@
-package EjermLinkedList;
+package EjemLinkedList;
 
 import java.util.LinkedList;
 import java.util.ListIterator;
