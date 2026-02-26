@@ -39,8 +39,6 @@ public class CuerpoCeleste {
     }
 
     public Set<CuerpoCeleste> getSatelites() {
-        System.out.println(new HashSet<>(satelites));
-        System.out.println(satelites);
         return new HashSet<>(satelites);
     }
 

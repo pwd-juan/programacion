@@ -23,9 +23,9 @@ public class Main {
         planetas.add(venus);
 
         // La Tierra-365,
-        CuerpoCeleste tierra = new Planeta("Tierra", 365);
-        sistemaSolar.put("Tierra", tierra);
-        planetas.add(tierra);
+        CuerpoCeleste LaTierra = new Planeta("Tierra", 365);
+        sistemaSolar.put("Tierra", LaTierra);
+        planetas.add(LaTierra);
 
         // Marte-687,
         CuerpoCeleste marte = new Planeta("Marte", 687);
@@ -97,7 +97,88 @@ public class Main {
                 System.out.println(x.getNombre());
         }
 
+        System.out.println("---");
+
         // vii.) Obtén del mapa del sistema solar el planeta Marte e imprime todas sus lunas.
-        sistemaSolar.get("Marte").getSatelites()
+        for (CuerpoCeleste x : sistemaSolar.get("Marte").getSatelites()){
+            if (x.getTipoCuerpo() == CuerpoCeleste.TipoCuerpoCeleste.LUNA)
+                System.out.println(x.getNombre());
+        }
+
+        System.out.println("---");
+
+        // viii.) Vamos a obtener la unión de todas las lunas, para eso nos creamos un
+        // Set<CuerpoCeleste> lunas de tipo HashSet. Y con un for-each recorremos todos
+        // los planetas y hacemos la unión de los satélites para cada uno de los planetas.
+        Set<CuerpoCeleste> lunas = new HashSet<>();
+        for (CuerpoCeleste x : planetas){
+            lunas.addAll(x.getSatelites());
+        }
+
+        // ix.) Imprime el set de lunas del apartado anterior, debería haber 7 lunas.
+        System.out.println("En total hay: " + lunas.size());
+        for (CuerpoCeleste luna : lunas){
+            System.out.println(luna);
+        }
+
+        System.out.println("---");
+
+        // x.) Crea un planeta Plutón-884. Imprime de nuevo los planetas utilizando el método
+        // sobreescrito toString. ¿Se ha agregado este planeta al conjunto? ¿Por qué?
+
+        // Sí se ha agregado al set. Porque cuando va a meter el segundo pluton cálcula su
+        // hash en base al hashCode, y al tener un número arbitrarío siempre es diferente.
+
+        CuerpoCeleste pluton884 = new Planeta("Pluton", 884);
+        sistemaSolar.put("Pluton-884", pluton884);
+        planetas.add(pluton884);
+
+        System.out.println("Map SistemaSolar: ");
+        for (CuerpoCeleste x : sistemaSolar.values()) {
+            System.out.println(x);
+        }
+
+        System.out.println("Set Planetas: ");
+        for (CuerpoCeleste x : planetas){
+            System.out.println(x);
+        }
+
+        System.out.println("---");
+
+        // xi.) ¿Y si lo creamos como un planeta enano en vez de un planeta?
+        sistemaSolar.remove("Pluton-884");
+        pluton884 = new PlanetaEnano("Pluton", 884);
+        sistemaSolar.put("Pluton-884", pluton884);
+        planetas.add(pluton884);
+
+        System.out.println("Map SistemaSolar: ");
+        for (CuerpoCeleste x : sistemaSolar.values()) {
+            System.out.println(x);
+        }
+
+        System.out.println("Set Planetas: ");
+        for (CuerpoCeleste x : planetas){
+            System.out.println(x);
+        }
+
+        System.out.println("---");
+
+        // xii.) Utiliza la diferencia y la intersección de Set utilizando el código.
+        // Añade lo que necesites de código y explica también qué tenemos en los
+        // conjuntos y cuál es el resultado esperado al aplicar las operaciones.
+        Set<CuerpoCeleste> planetas2 = new HashSet<>(planetas);
+        planetas2.remove(mercurio);
+        planetas2.remove(venus);
+
+        System.out.println(planetas);
+        System.out.println(planetas2);
+
+        Set<CuerpoCeleste> intersecion = new HashSet<>(planetas);
+        intersecion.retainAll(planetas2);
+        System.out.println(intersecion);
+
+        Set<CuerpoCeleste> diferencia = new HashSet<>(planetas);
+        diferencia.retainAll(planetas2);
+        System.out.println(diferencia);
     }
 }
