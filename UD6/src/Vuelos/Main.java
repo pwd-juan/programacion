@@ -10,7 +10,9 @@ public class Main {
         anyadirVueloBasicos(vuelos);
         Scanner sc = new Scanner(System.in);
         boolean tiempoEjecucion = true;
+        int indiceVueloEncontrado;
         String selecUsu;
+        String selecUsuAux;
 
         while (tiempoEjecucion) {
             menu();
@@ -18,33 +20,125 @@ public class Main {
 
             switch (selecUsu) {
                 case "1" -> {
+                    System.out.print("\n");
+
+                    System.out.println("DATOS DE LOS VUELOS: ");
+                    if (vuelos.isEmpty()) System.out.println("No existen vuelos.");
+
                     for (Vuelo x : vuelos) {
                         System.out.println(x);
                     }
+
+                    System.out.print("\n");
                 }
                 case "2" -> {
+                    indiceVueloEncontrado = -1;
+
                     System.out.print("\n");
                     System.out.println("BUSCAR VUELO POR Nº: ");
-
-                    if (vuelos.isEmpty()) {
-                        System.out.println("No existen vuelos.");
-                        break;
-                    }
-
                     System.out.print("Número de vuelo: ");
                     selecUsu = sc.nextLine();
                     System.out.print("\n");
 
-                    for (Vuelo x : vuelos) {
-                        if (x.getNumero().equals(selecUsu)) System.out.println(x);
+                    for (int i = 0; i < vuelos.size(); i++)
+                        if (vuelos.get(i).getNumero().equals(selecUsu)) indiceVueloEncontrado = i;
+
+                    if (vuelos.isEmpty()) {
+                        System.out.println("No existen vuelos.");
+                    } else if (indiceVueloEncontrado != -1) {
+                        System.out.println("Datos del vuelo: ");
+                        System.out.println(vuelos.get(indiceVueloEncontrado));
+                    } else {
+                        System.out.println("El número de vuelo no existe.");
                     }
                 }
-                case "3" -> ;
-                case "4" -> ;
-                case "5" -> ;
+                case "3" -> {
+                    System.out.print("\n");
+                    System.out.println("BUSCAR VUELO POR CLAVE: ");
+                    System.out.print("Clave: ");
+                    selecUsu = sc.nextLine();
+                    System.out.print("Valor: ");
+                    selecUsuAux = sc.nextLine();
+                    System.out.print("\n");
+
+                    selecUsu = selecUsu.toUpperCase();
+
+                    if (vuelos.isEmpty()) {
+                        System.out.println("No existen vuelos.");
+                    } else if (!vuelos.get(0).getValores().containsKey(selecUsu)) {
+                        System.out.println("Lo siento pero la clave no existe.");
+                    } else {
+                        int salidas = vuelos.size();
+                        for (Vuelo x : vuelos){
+                            if (x.getValores().get(selecUsu).equalsIgnoreCase(selecUsuAux)){
+                                System.out.println("Datos del vuelo: ");
+                                System.out.println(x);
+                                salidas--;
+                            }
+                        }
+                        if (salidas == vuelos.size())
+                            System.out.printf(
+                                "No existen datos para (%s = %s).\n",
+                                selecUsu,
+                                selecUsuAux
+                            );
+                    }
+                }
+                case "4" -> {
+                    Vuelo v = new Vuelo();
+
+                    System.out.print("\n");
+                    System.out.println("AÑADIR NUEVO VUELO: ");
+
+                    System.out.print("Número: ");
+                    selecUsu = sc.nextLine();
+                    v.setNumero(selecUsu);
+
+                    System.out.print("Origen: ");
+                    selecUsu = sc.nextLine();
+                    v.setOrigen(selecUsu);
+
+                    System.out.print("Destino: ");
+                    selecUsu = sc.nextLine();
+                    v.setDestino(selecUsu);
+
+                    System.out.print("Día: ");
+                    selecUsu = sc.nextLine();
+                    v.setDia(selecUsu);
+
+                    System.out.print("Clase: ");
+                    selecUsu = sc.nextLine();
+                    v.setClase(selecUsu);
+
+                    vuelos.add(v);
+
+                    System.out.println("Vuelo añadido a la lista.");
+                }
+                case "5" -> {
+                    indiceVueloEncontrado = -1;
+
+                    System.out.print("\n");
+                    System.out.println("BORRAR VUELO: ");
+                    System.out.print("Número de vuelo: ");
+                    selecUsu = sc.nextLine();
+                    System.out.print("\n");
+
+                    for (int i = 0; i < vuelos.size(); i++)
+                        if (vuelos.get(i).getNumero().equals(selecUsu)) indiceVueloEncontrado = i;
+
+                    if (vuelos.isEmpty()) {
+                        System.out.println("No existen vuelos.");
+                    } else if (indiceVueloEncontrado != -1) {
+                        System.out.println("Vuelo nº " + selecUsu + " eliminado.");
+                        vuelos.remove(indiceVueloEncontrado);
+                    } else {
+                        System.out.println("El número de vuelo no existe.");
+                    }
+                }
                 case "0" -> tiempoEjecucion = false;
                 default -> {
-
+                    System.out.print("\n");
+                    System.out.println("Debes elegir una opción del menu.");
                 }
             }
         }
