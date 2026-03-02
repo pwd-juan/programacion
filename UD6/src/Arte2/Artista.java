@@ -16,4 +16,9 @@ public class Artista {
     public String getNacionalidad() {
         return Nacionalidad;
     }
+
+    @Override
+    public String toString() {
+        return this.Nombre + " | " + this.Nacionalidad;
+    }
 }

@@ -4,18 +4,18 @@ public class Obra {
     private final String Nombre;
     private final String Tipo;
     private int precio;
-    private final String anyoCreacion;
+    private final int anyoCreacion;
 
-    public Obra(String nombre, String tipo, String anyoCreacion, int precio) {
-        Nombre = nombre;
-        Tipo = tipo;
+    public Obra(String nombre, String tipo, int precio, int anyoCreacion) {
+        this.Nombre = nombre;
+        this.Tipo = tipo;
         this.anyoCreacion = anyoCreacion;
         this.precio = precio;
     }
 
-    public Obra(String nombre, String tipo, String anyoCreacion, String precio) {
-        Nombre = nombre;
-        Tipo = tipo;
+    public Obra(String nombre, String tipo, String precio, int anyoCreacion) {
+        this.Nombre = nombre;
+        this.Tipo = tipo;
         this.anyoCreacion = anyoCreacion;
         this.precio = normalizarPrecio(precio);
     }
@@ -26,6 +26,10 @@ public class Obra {
 
     public String getTipo() {
         return Tipo;
+    }
+
+    public int getAnyoCreacion() {
+        return anyoCreacion;
     }
 
     public int getPrecio() {
@@ -40,10 +44,6 @@ public class Obra {
         this.precio = normalizarPrecio(precio);
     }
 
-    public String getAnyoCreacion() {
-        return anyoCreacion;
-    }
-
     private int normalizarPrecio(String precio) {
         if (precio.charAt(precio.length() - 1) == 'M') {
             precio = precio.substring(0, precio.length() - 1);
@@ -56,5 +56,13 @@ public class Obra {
         }
 
         return Integer.parseInt(precio);
+    }
+
+    @Override
+    public String toString() {
+        return Nombre + " | " +
+                Tipo + " | " +
+                precio + " | " +
+                anyoCreacion;
     }
 }
