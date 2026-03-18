@@ -101,10 +101,10 @@ public class Main {
         boolean esValido = false;
         Herramienta herramienta = null;
 
-        System.out.println(p.getNombre());
+        System.out.print(p.getNombre()+": ");
         System.out.println("Selecciona herramienta:");
         for (Herramienta h : p.getMochila()) {
-            System.out.println(h + String.valueOf(h.getValor()));
+            System.out.println(h);
         }
 
         do {

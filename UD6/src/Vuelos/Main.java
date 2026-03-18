@@ -7,7 +7,7 @@ public class Main {
     public static LinkedList<Vuelo> vuelos = new LinkedList<>();
 
     public static void main(String[] args) {
-        anyadirVueloBasicos(vuelos);
+        //anyadirVueloBasicos(vuelos);
         Scanner sc = new Scanner(System.in);
         boolean tiempoEjecucion = true;
         int indiceVueloEncontrado;
@@ -36,6 +36,12 @@ public class Main {
 
                     System.out.print("\n");
                     System.out.println("BUSCAR VUELO POR Nº: ");
+
+                    if (vuelos.isEmpty()) {
+                        System.out.println("No existen vuelos");
+                        continue;
+                    }
+
                     System.out.print("Número de vuelo: ");
                     selecUsu = sc.nextLine();
                     System.out.print("\n");
@@ -55,6 +61,12 @@ public class Main {
                 case "3" -> {
                     System.out.print("\n");
                     System.out.println("BUSCAR VUELO POR CLAVE: ");
+
+                    if (vuelos.isEmpty()) {
+                        System.out.println("No existen vuelos");
+                        continue;
+                    }
+
                     System.out.print("Clave: ");
                     selecUsu = sc.nextLine();
                     System.out.print("Valor: ");
@@ -119,6 +131,12 @@ public class Main {
 
                     System.out.print("\n");
                     System.out.println("BORRAR VUELO: ");
+
+                    if (vuelos.isEmpty()) {
+                        System.out.println("No existen vuelos");
+                        continue;
+                    }
+
                     System.out.print("Número de vuelo: ");
                     selecUsu = sc.nextLine();
                     System.out.print("\n");

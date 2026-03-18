@@ -1,5 +1,6 @@
 package Arte2;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -65,7 +66,11 @@ public class Main {
                                 new Obra(nombre, tipo, precio, Integer.parseInt(anyo)),
                                 numArtista
                         );
+
+                        System.out.println("Obra creada.");
                     }
+
+                    sc.nextLine();
                 }
                 case "2" -> {
                     String nombre;  String nacionalidad;
@@ -77,17 +82,24 @@ public class Main {
                     nacionalidad = sc.nextLine();
 
                     obras.anyadirArtista(new Artista(nombre, nacionalidad));
+                    System.out.println("Artista creado");
                 }
                 case "3" -> {
+                    boolean noEncontrado = true;
                     String nombre;
 
-                    System.out.println("Nombre de la obra: ");
+                    System.out.print("Nombre de la obra: ");
                     nombre = sc.nextLine().trim();
 
                     for (Obra o : obras.getRelacion().keySet()) {
                         if (o.getNombre().equals(nombre)) {
                             System.out.println(o);
+                            noEncontrado = false;
                         }
+                    }
+
+                    if (noEncontrado) {
+                        System.out.println("No se encontró la obra.");
                     }
                 }
                 case "4" -> {
@@ -120,9 +132,43 @@ public class Main {
                             System.out.println(o);
                         }
                     }
+
+                    sc.nextLine();
                 }
                 case "5" -> {
-                    System.out.println("Selecciona la obra a eliminar: ");
+                    String num;
+                    int numObra;
+                    ArrayList<Obra> listaObrasActual = obras.getObras();
+                    boolean error = false;
+
+                    int sel;
+                    for (int i = 0; i < listaObrasActual.size(); i++) {
+                        sel = i + 1;
+                        System.out.println(sel + ". " + listaObrasActual.get(i));
+                    }
+
+                    System.out.print("Selecciona la obra a eliminar: ");
+                    num = sc.nextLine().trim();
+
+                    for (int i = 0; i < num.length() && !error; i++) {
+                        if (!Character.isDigit(num.charAt(i))) {
+                            System.out.println("Valor de artista no valido.");
+                            error = true;
+                        }
+                    }
+
+                    numObra = Integer.parseInt(num) - 1;
+
+                    if (numObra < 0 || numObra > listaObrasActual.size()) {
+                        System.out.println("Número de artista fuera de rango.");
+                        error = false;
+                    }
+
+                    if (!error) {
+                        obras.eliminarObra(listaObrasActual.get(numObra));
+                    }
+
+                    System.out.println("Obra Eliminada.");
                 }
                 case "6" -> {
                     System.out.println("La obra(s) más barata(s) es: ");

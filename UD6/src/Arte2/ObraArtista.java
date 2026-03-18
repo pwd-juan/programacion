@@ -66,6 +66,10 @@ public class ObraArtista {
         artistas.add(auguste);
     }
 
+    public ArrayList<Obra> getObras() {
+        return new ArrayList<Obra>(relacion.keySet());
+    }
+
     public ArrayList<Obra> getObrasArtista(Artista a) {
         ArrayList<Obra> obras = new ArrayList<>();
 
@@ -100,6 +104,11 @@ public class ObraArtista {
         }
 
         return obras;
+    }
+
+
+    public void eliminarObra(Obra o) {
+        relacion.remove(o);
     }
 
     private int precioMasAltoBajo(boolean orden) {
