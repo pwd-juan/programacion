@@ -81,6 +81,8 @@ class Impresora {
         return this.numPagImpresas;
     }
 
+    public Tonel getTonel() {return tonel;}
+
     public int getNivelTinta() {
         return (this.tonel != null) ? this.tonel.getNivelAct() : -1;
     }

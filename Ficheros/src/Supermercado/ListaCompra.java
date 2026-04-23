@@ -1,5 +1,7 @@
 package Supermercado;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.*;
 
 public class ListaCompra {
@@ -86,12 +88,31 @@ public class ListaCompra {
 
     private Map<String, Double> genProductos() {
         Map<String, Double> productos = new HashMap<>();
-        productos.put("avena", 2.21);
-        productos.put("garbanzos", 2.39);
-        productos.put("tomate", 1.59);
-        productos.put("jengibre", 3.13);
-        productos.put("quinoa", 4.50);
-        productos.put("guisantes", 1.60);
+
+        try {
+            Scanner file = new Scanner(new File("src/Supermercado/productos"));
+            String[] pr;
+
+            while (file.hasNextLine()) {
+                pr = file.nextLine().split(";");
+
+                if (pr.length != 2) continue;
+
+                if (pr[1].lastIndexOf(",") == pr[1].indexOf(",")) {
+                    pr[1] = pr[1].replace(",", ".");
+                }
+
+                try {
+                    productos.put(pr[0].trim(), Double.parseDouble(pr[1]));
+                } catch (NumberFormatException e) {
+                    System.err.println("Error en los precios.");
+                    System.err.println(e.getMessage());
+                }
+            }
+        } catch (FileNotFoundException e) {
+            System.err.println("No se encontró el fichero con los productos.");
+        }
+
         return productos;
     }
 
